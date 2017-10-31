@@ -6,17 +6,17 @@ import io.dropwizard.db.DataSourceFactory;
 
 public class CmApiConfiguration extends MinimalApiConfiguration {
 
-  private DataSourceFactory templateDataSourceFactory;
+  private DataSourceFactory cmDataSourceFactory;
 
   private boolean upgardeDbOnStart = false;
 
   @JsonProperty
-  public DataSourceFactory getTemplateDataSourceFactory() {
-    return templateDataSourceFactory;
+  public DataSourceFactory getCmDataSourceFactory() {
+    return cmDataSourceFactory;
   }
 
-  public void setTemplateDataSourceFactory(DataSourceFactory templateDataSourceFactory) {
-    this.templateDataSourceFactory = templateDataSourceFactory;
+  public void setCmDataSourceFactory(DataSourceFactory cmDataSourceFactory) {
+    this.cmDataSourceFactory = cmDataSourceFactory;
   }
 
   @JsonProperty
