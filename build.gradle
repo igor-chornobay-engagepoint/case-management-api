@@ -33,9 +33,11 @@ project.ext {
     projectVersion = projectMajorVersion + '-SNAPSHOT'
     //projectVersion = projectMajorVersion
     dropwizardVersion = '1.1.0'
-    coreApiVersion = '0.4.4-SNAPSHOT'
+//    coreApiVersion = '0.4.4-SNAPSHOT'
+    coreApiVersion = '3.6'
     mapstructVersion = '1.1.0.Final'
     mainClass = 'gov.ca.cwds.cm.CmApiApplication'
+    shiroVersion = '0.4.2-SNAPSHOT'
 }
 
 group projectGroup
@@ -95,8 +97,10 @@ dependencies {
 // Exclude transitive dependencies.
     compile (group: 'gov.ca.cwds.api', name: 'api-core', version: coreApiVersion , changing: true) {
         exclude group: 'org.glassfish.jersey.core'
+        exclude group: 'gov.ca.cwds.api', module:'shiro-security'
     }
 
+    compile group: 'gov.ca.cwds.api', name:'shiro-security', version: '0.4.2-SNAPSHOT'
     compile group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.46'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.1'
     compile group: 'org.slf4j', name: 'slf4j-ext', version: '1.7.25'
