@@ -37,7 +37,7 @@ project.ext {
     coreApiVersion = '3.6'
     mapstructVersion = '1.1.0.Final'
     mainClass = 'gov.ca.cwds.cm.CmApiApplication'
-    shiroVersion = '0.4.2-SNAPSHOT'
+    shiroSecurityVersion = '0.4.2-SNAPSHOT'
 }
 
 group projectGroup
