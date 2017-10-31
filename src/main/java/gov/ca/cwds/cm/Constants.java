@@ -22,16 +22,16 @@ public final class Constants {
 
     public static final String SYSTEM_INFORMATION_PATH = "system-information";
 
-    public static final String TEMPLATE_INSTANCES_PATH = "cm/instances";
-    public static final String TEMPLATE_INSTANCE_TAG = "cm-instances";
+    public static final String CM_PATH = "cm";
+    public static final String CM_TAG = "cm";
 
     private API() {
     }
 
     public static class PathParams {
 
-      public static final String TEMPLATE_NAME_PARAMETER = "templateName";
-      public static final String TEMPLATE_ID_PARAMETER = "templateId";
+      public static final String CM_NAME_PARAMETER = "caseName";
+      public static final String CM_ID_PARAMETER = "caseId";
 
 
       private PathParams() {

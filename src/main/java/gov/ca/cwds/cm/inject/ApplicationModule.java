@@ -9,7 +9,7 @@ import gov.ca.cwds.rest.WebSecurityConfiguration;
 import io.dropwizard.setup.Bootstrap;
 
 /**
- * Bootstraps and configures the CWDS RESTful TEMPLATE_UNIT_OF_WORK-API application.
+ * Bootstraps and configures the CWDS RESTful CM_UNIT_OF_WORK-API application.
  *
  * @author CWDS TPT-3 Team
  */

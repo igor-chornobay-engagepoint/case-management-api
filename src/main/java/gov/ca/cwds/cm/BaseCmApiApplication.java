@@ -24,8 +24,8 @@ public abstract class BaseCmApiApplication<T extends CmApiConfiguration> extends
     BaseApiApplication<T> {
 
   private static final Logger LOG = LoggerFactory.getLogger(BaseCmApiApplication.class);
-  private static final String LIQUIBASE_FORMS_DATABASE_CREATE_SCHEMA_XML = "liquibase/template_schema.xml";
-  private static final String LIQUIBASE_FORMS_DATABASE_MASTER_XML = "liquibase/template_database_master.xml";
+  private static final String LIQUIBASE_FORMS_DATABASE_CREATE_SCHEMA_XML = "liquibase/cm_schema.xml";
+  private static final String LIQUIBASE_FORMS_DATABASE_MASTER_XML = "liquibase/cm_database_master.xml";
   private static final String HIBERNATE_DEFAULT_SCHEMA_PROPERTY_NAME = "hibernate.default_schema";
 
   @Override
@@ -60,7 +60,7 @@ public abstract class BaseCmApiApplication<T extends CmApiConfiguration> extends
 
   private void runDataSourceHealthChecks(Environment environment) {
     HealthCheckRegistry healthCheckRegistry = environment.healthChecks();
-//    doHealthCheck(healthCheckRegistry, Constants.UnitOfWork.TEMPLATE_UNIT_OF_WORK);
+//    doHealthCheck(healthCheckRegistry, Constants.UnitOfWork.CM_UNIT_OF_WORK);
   }
 
   private void doHealthCheck(HealthCheckRegistry healthCheckRegistry, String key) {

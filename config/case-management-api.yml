@@ -18,7 +18,7 @@ shiro:
 swagger:
   templateName: swagger.mustache
   assetsPath: /static
-  resourcePackage: gov.ca.cwds.templateate.web.rest
+  resourcePackage: gov.ca.cwds.cm.web.rest
   title: CWDS CASE MANAGEMENT API
   description: RESTful CASE MANAGEMENT API.
   logo: images/CWDS-API-Logo-Horizontal.png
