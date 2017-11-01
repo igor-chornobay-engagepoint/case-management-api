@@ -5,9 +5,9 @@ services:
       ports:
           - "50000:50000"
       environment:
-          DB2INST1_PASSWORD: "db2inst1"
+          DB2INST1_PASSWORD: "db2inst1-pwd"
           LICENSE: "accept"
-          DB2NAME: "cmsdb"
+          DB2NAME: "DB0TDEV"
       command: db2start
 
   case-api:
