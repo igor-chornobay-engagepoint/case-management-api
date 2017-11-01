@@ -2,12 +2,13 @@ version: '3.1'
 services:
   db2-ibm:
       image: cwds/db2
+      env_file: ./.env
       ports:
-          - "50000:50000"
+          - ${DB_CMS_DB2_PORT}:${DB_CMS_DB2_PORT}
       environment:
-          DB2INST1_PASSWORD: "db2inst1-pwd"
+          DB2INST1_PASSWORD: ${DB_CMS_PASSWORD}
           LICENSE: "accept"
-          DB2NAME: "DB0TDEV"
+          DB2NAME: ${DB_CMS_DB_NAME}
       command: db2start
 
   case-api:
@@ -16,7 +17,7 @@ services:
       depends_on:
         - db2-ibm
       ports:
-        - "8080:8080"
-        - "9081:9081"
+        - ${CASE_API_PORT}:${CASE_API_PORT}
+      env_file: ./.env
       environment:
-         SHIRO_CONFIG_PATH: "/opt/case-management-api/config/shiro.ini"
+         SHIRO_CONFIG_PATH: ${SHIRO_CONFIG_PATH}
