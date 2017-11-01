@@ -219,7 +219,7 @@ task apiDocker(type: Docker,  dependsOn: [copyConfig, copyDist] ) {
 }
 
 task createDockerImage(type:Exec, dependsOn: [convertEntrypointToLF, shadowJar]) {
-    commandLine 'docker',  'build',  '-t',  'mzemlyanoi/case-management-api', '.'
+    commandLine 'docker',  'build',  '-t',  "$tempRepository/case-management-api", '.'
 }
 
 task tagDockerImage(type:Exec, dependsOn: createDockerImage) {
