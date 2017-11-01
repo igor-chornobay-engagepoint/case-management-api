@@ -29,7 +29,7 @@ project.ext {
     projectGroup = 'gov.ca.cwds.case-management'
     projectDockerGroup = 'cwds'
     projectDockerAppName = 'case-management-api'
-    projectMajorVersion = '0.4.3'
+    projectMajorVersion = '0.1.0'
     projectVersion = projectMajorVersion + '-SNAPSHOT'
     //projectVersion = projectMajorVersion
     dropwizardVersion = '1.1.0'
@@ -92,7 +92,9 @@ configurations.all {
 }
 
 dependencies {
-    
+    compile group: 'com.ibm', name: 'db2jcc4', version: '4.0.0'
+    compile group: 'com.ibm', name: 'db2jcc_license_cisuz', version: '4.0.0'
+
 // Dropwizard-guice 1.0.0.2 conflicts with jersey-client 2.25.
 // Exclude transitive dependencies.
     compile (group: 'gov.ca.cwds.api', name: 'api-core', version: coreApiVersion , changing: true) {

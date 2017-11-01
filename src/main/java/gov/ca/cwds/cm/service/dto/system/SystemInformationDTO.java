@@ -14,6 +14,7 @@ public class SystemInformationDTO extends BaseDTO {
   private String application;
   private String version;
   private String buildNumber;
+  private HealthCheckResultDTO cwscms;
   private HealthCheckResultDTO deadlocks;
 
   public String getApplication() {
@@ -38,6 +39,14 @@ public class SystemInformationDTO extends BaseDTO {
 
   public void setBuildNumber(String buildNumber) {
     this.buildNumber = buildNumber;
+  }
+
+  public HealthCheckResultDTO getCwscms() {
+    return cwscms;
+  }
+
+  public void setCwscms(HealthCheckResultDTO cwscms) {
+    this.cwscms = cwscms;
   }
 
   public HealthCheckResultDTO getDeadlocks() {

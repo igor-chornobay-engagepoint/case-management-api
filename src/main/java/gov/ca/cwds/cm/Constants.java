@@ -51,4 +51,15 @@ public final class Constants {
     private Validation() {
     }
   }
+
+  public static class UnitOfWork {
+
+    public static final String CMS = "cwscms";
+
+    public static final String XA_CMS = "xa_cwscms";
+
+    private UnitOfWork() {
+    }
+  }
+
 }

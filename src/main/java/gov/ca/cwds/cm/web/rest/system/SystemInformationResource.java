@@ -79,6 +79,7 @@ public class SystemInformationResource {
 
     SortedMap<String, HealthCheck.Result> healthChecks = environment.healthChecks()
         .runHealthChecks();
+    systemInformationDTO.setCwscms(getHealthCheckResultDTO(healthChecks.get(Constants.UnitOfWork.CMS)));
     systemInformationDTO.setDeadlocks(getHealthCheckResultDTO(healthChecks.get("deadlocks")));
 
     return systemInformationDTO;
