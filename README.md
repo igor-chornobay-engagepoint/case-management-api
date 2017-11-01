@@ -17,6 +17,10 @@ NOTE : At this time there is not a publicy available link to the documentation, 
 ### Application Configuration Parameters
 - APP_VERSION -- Version of application
 
+### SSL Configuration Parameters
+- KEY_STORE_FILE -- Path to keystore file
+- KEY_STORE_PASSWORD -- Keystore password
+
 ### Data Stores Configuration Parameters
 
 The CWDS API currently utilizes four persistent stores:
