@@ -207,6 +207,7 @@ task copyDist(type: Copy, dependsOn: shadowJar) {
 def releaseDocker = System.getProperty("ReleaseDocker")
 def buildNumber = System.getProperty('BuildNumber')
 def dockerTag = (releaseDocker == 'true' && buildNumber != null  ? projectMajorVersion + '_' + buildNumber + '-RC' : projectVersion )
+def tempRepository = 'mzemlyanoi'
 
 task readArguments() {
     doLast{
@@ -225,24 +226,24 @@ task apiDocker(type: Docker,  dependsOn: [copyConfig, copyDist] ) {
 }
 
 task createDockerImage(type:Exec, dependsOn: [convertEntrypointToLF, shadowJar]) {
-    commandLine 'docker',  'build',  '-t',  'cwds/case-management-api', '.'
+    commandLine 'docker',  'build',  '-t',  "$tempRepository/case-management-api", '.'
 }
 
 task tagDockerImage(type:Exec, dependsOn: createDockerImage) {
-    commandLine 'docker',  'tag',  'cwds/case-management-api',  "cwds/case-management-api:$dockerTag"
+    commandLine 'docker',  'tag',  "$tempRepository/case-management-api",  "mzemlyanoi/case-management-api:$dockerTag"
 }
 
 task pushDockerLatest(type:Exec, dependsOn: createDockerImage) {
-    commandLine 'docker',  'push',  'cwds/case-management-api:latest'
+    commandLine 'docker',  'push',  "$tempRepository/case-management-api:latest"
 }
 
 task pushDockerVersionTagged(type:Exec, dependsOn: tagDockerImage) {
-    commandLine 'docker',  'push',  "cwds/case-management-api:$dockerTag"
+    commandLine 'docker',  'push',  "$tempRepository/case-management-api:$dockerTag"
 }
 
 task dropDockerImage(type:Exec) {
-    commandLine 'docker',  'rmi',  "cwds/case-management-api:$dockerTag"
-    commandLine 'docker',  'rmi',  "cwds/case-management-api:latest"
+    commandLine 'docker',  'rmi',  "$tempRepository/case-management-api:$dockerTag"
+    commandLine 'docker',  'rmi',  "$tempRepository/case-management-api:latest"
 
 }
 
