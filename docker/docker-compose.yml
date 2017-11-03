@@ -11,22 +11,22 @@ services:
           DB2INST1_PASSWORD: ${DB_CMS_PASSWORD}
           LICENSE: "accept"
           DB2NAME: ${DB_CMS_DB_NAME}
-#  case-api:
-#      image: ${REPOSITORY}/case-management-api
-#      hostname: case-management-api
-#      depends_on:
-#        db2:
-#          condition: service_started
-#      restart: on-failure
-#      ports:
-#        - ${CASE_API_PORT}:${CASE_API_PORT}
-#      env_file: .env
-#      expose:
-#           - "8080"
-#      environment:
-#         SHIRO_CONFIG_PATH: ${SHIRO_CONFIG_PATH}
-#         SHIRO_NOSEC_CONFIG_PATH: ${SHIRO_NOSEC_CONFIG_PATH}
-#      command: ["./wait-for-it.sh", "localhost:50000", "--", "/opt/case-management-api/entrypoint.sh"]
+  case-api:
+      image: ${REPOSITORY}/case-management-api
+      hostname: case-management-api
+      depends_on:
+        db2:
+          condition: service_started
+      restart: on-failure
+      ports:
+        - ${CASE_API_PORT}:${CASE_API_PORT}
+      env_file: .env
+      expose:
+           - "8080"
+      environment:
+         SHIRO_CONFIG_PATH: ${SHIRO_CONFIG_PATH}
+         SHIRO_NOSEC_CONFIG_PATH: ${SHIRO_NOSEC_CONFIG_PATH}
+      command: ["./wait-for-it.sh", "localhost:50000", "--", "/opt/case-management-api/entrypoint.sh"]
 
 
 
