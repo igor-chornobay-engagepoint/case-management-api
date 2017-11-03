@@ -45,7 +45,7 @@ cmsDataSourceFactory:
   validationQueryTimeout: 25s
   validationQuery: "select count(*) from ${DB_CMS_SCHEMA:-SYSIBM}.SYSATTRIBUTES"
   logValidationErrors: true
-  initialSize: ${DB_CMS_CP_INITIAL_SIZE:-2}
+  initialSize: ${DB_CMS_CP_INITIAL_SIZE:-0}
   minSize: ${DB_CMS_CP_MIN_SIZE:-2}
   maxSize: ${DB_CMS_CP_MAX_SIZE:-8}
   minIdleTime: 1 minute
